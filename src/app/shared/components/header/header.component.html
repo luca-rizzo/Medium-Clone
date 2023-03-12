@@ -1,0 +1,8 @@
+<div *ngIf="userLoggedIn$ | async as userLoggedIn" class="header">
+    <img class="img-logo" src="../../../../assets/image/logo.png" alt="">
+    <dx-text-box class="search-box" placeholder="Search article"></dx-text-box>
+    <div class="right-part">
+        <p>Write</p>
+        <img class="user-img" src="{{userLoggedIn.image}}" alt="">
+    </div>
+</div>

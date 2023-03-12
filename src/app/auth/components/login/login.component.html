@@ -1,0 +1,11 @@
+<dx-form [(formData)]="formData">
+    <dxi-item dataField="email" type="email">
+        <dxi-validation-rule type="email"></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="password" type="password">
+    </dxi-item>
+    <dxi-item 
+        itemType="button"
+        [buttonOptions]="submitLoginButtonOptions">
+    </dxi-item>
+</dx-form>

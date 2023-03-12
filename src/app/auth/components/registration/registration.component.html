@@ -1,0 +1,20 @@
+<dx-form [(formData)]="formData">
+    <dxi-item dataField="username">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="email" type="email">
+        <dxi-validation-rule type="email"></dxi-validation-rule>
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="password" type="password">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item 
+        itemType="button"
+        [buttonOptions]="submitRegButtonOptions">
+    </dxi-item>
+</dx-form>
+<div *ngIf="errorMessage$ | async as errorMessage"
+     class="alert alert-danger">
+  {{errorMessage}}
+</div>
