@@ -6,10 +6,7 @@ import { Article } from '../../models/article.model';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit{
-  ngOnInit(): void {
-    console.log(this.article)
-  }
+export class ArticleComponent {
   @Input()
-  article: Article | undefined = {} as Article;
+  article: Article = {} as Article;
 }

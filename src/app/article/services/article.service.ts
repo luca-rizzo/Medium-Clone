@@ -11,11 +11,7 @@ import { ArticleServiceWs } from './article.service-ws';
 })
 export class ArticleService {
 
-  articles$: Observable<{articles: Article[], articleCount: number}> = this._articleServiceWs.getArticles();
-  
-  
-  
-  private readonly _customStore = new CustomStore<Article>({
+  private readonly _articleCustomStore = new CustomStore<Article>({
     key: 'slug',
     load: (loadOptions: LoadOptions) => {
       return lastValueFrom(this._articleServiceWs.getArticles(loadOptions.skip, 10).pipe(map(response => response.articles)));
@@ -23,10 +19,10 @@ export class ArticleService {
     totalCount: () => {
       return lastValueFrom(this._articleServiceWs.getArticles().pipe(map(response => response.articleCount)))
     }
-  })
+  });
 
   articleDataSource: DataSource = new DataSource<Article>({
-    store: this._customStore,
+    store: this._articleCustomStore,
     paginate: true,
     pageSize: 10
   })

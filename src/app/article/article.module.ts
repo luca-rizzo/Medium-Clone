@@ -4,23 +4,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from './component/article/article.component';
 import { AuthGuard } from '../shared/guard/auth.guard';
 import { SharedModule } from '../shared/shared.module';
-import { ArticleListPageComponent } from './pages/article-list-page/article-list-page.component';
-import { DxListModule } from 'devextreme-angular';
+import { ArticleListComponent } from './component/article-list/article-list.component';
+import { DxButtonModule, DxListModule, DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 const routes: Routes = [
-  { path: "articles", component: ArticleListPageComponent, canActivate: [AuthGuard] },
+  { path: "articles", component: HomepageComponent, canActivate: [AuthGuard] },
 ]
 
 @NgModule({
   declarations: [
     ArticleComponent,
-    ArticleListPageComponent
+    ArticleListComponent,
+    HomepageComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     DxListModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    DxTabPanelModule,
+    DxButtonModule
+  ],
+  
 })
 export class ArticleModule { }
