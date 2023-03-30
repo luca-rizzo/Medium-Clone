@@ -1,5 +1,5 @@
 <div *ngIf="userLoggedIn$ | async as userLoggedIn" class="header">
-    <img class="img-logo" src="../../../../assets/image/logo.png" alt="">
+    <img class="img-logo" src="../../../../assets/image/logo.png" alt="" [routerLink]="'/homepage'">
     <dx-text-box class="search-box" placeholder="Search article"></dx-text-box>
     <div class="right-part">
         <p>Write</p>

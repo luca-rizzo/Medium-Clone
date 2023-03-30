@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth/services/auth.service';
 import { JwtStoreService } from './auth/services/jwt-store.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit{
     if(this._jwtStore.isTokenExpired()){
       this._router.navigate(['login']);
     } else {
-      this._router.navigate(['articles']);
+      this._router.navigate(['homepage']);
     }
   }
 }

@@ -1,0 +1,13 @@
+<div style="padding: 10px;">
+    <app-article-metadata [article]="article"></app-article-metadata>
+    <p style="font-size: 20px; color: black; font-weight: bold;" [routerLink]="['/article', article.slug]">
+        {{article.title}}
+    </p>
+    <p style="font-size: 16px; color: black; word-wrap: break-word; white-space: normal;">
+        {{article.description}}
+    </p>
+    <div style="display: flex; align-items: center;">
+        <dx-button id="likeButton" icon="like" (onClick)="likeButtonClicked()" stylingMode="text" [ngClass]="{'favorited': article.favorited}"></dx-button>
+        <p style="font-size: 14px; color: gray; margin-left: 5px;">{{article.favoritesCount}}</p>
+    </div>
+</div>

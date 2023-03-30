@@ -19,7 +19,7 @@ export class AuthService {
   authError$ = this.authErrorSubject.asObservable();
 
   constructor(private readonly _jwtStore: JwtStoreService, private readonly _authServiceWs: AuthServiceWs,
-    private router: Router) { 
+    private _router: Router) { 
       if(!this._jwtStore.isTokenExpired()){
         this.retriveAndSetLoggedUser();
       }
@@ -29,7 +29,7 @@ export class AuthService {
     this._authServiceWs.register(registrationPayload).subscribe({
       next: userData => {
         this.setAuth(userData.user);
-        this.router.navigate(["/articles"]);
+        this._router.navigate(["/articles"]);
       },
       error: errorResponse => {
         this.purgeAuth(errorResponse.error)
@@ -41,7 +41,7 @@ export class AuthService {
     this._authServiceWs.login(loginPayload).subscribe({
       next: userData => {
         this.setAuth(userData.user);
-        this.router.navigate(["/articles"]);
+        this._router.navigate(["/articles"]);
       },
       error: errorResponse => {
         this.purgeAuth(errorResponse.error)
@@ -53,7 +53,7 @@ export class AuthService {
     this._authServiceWs.getLoggedUser().subscribe({
       next: userData => {
         this.setAuth(userData.user);
-        this.router.navigate(["/articles"]);
+        this._router.navigate(["/articles"]);
       },
       error: errorResponse => {
         this.purgeAuth(errorResponse.error)

@@ -1,0 +1,25 @@
+<div *ngIf="isLoading$ | async">
+    <dx-load-panel shadingColor="rgba(0,0,0,0.4)" [visible]="true"></dx-load-panel>
+</div>
+<div class="article-page-content-container" *ngIf="currentFullArticle$ | async as currentFullArticle">
+    <dx-scroll-view style="flex: 4;">
+        <div style="padding: 40px 80px; height: 100%;">
+            <app-article-metadata [article]="currentFullArticle"></app-article-metadata>
+            <h1>{{currentFullArticle.title}}</h1>
+            <p>{{currentFullArticle.description}}</p>
+            <div [innerHTML]="currentFullArticle.body | replaceString"></div>
+            <h2>Comments</h2>
+            <ng-container *ngFor="let comment of currentFullArticle.comments">
+                <p>{{comment}}</p>
+            </ng-container>
+        </div>
+    </dx-scroll-view>
+    <div style="flex: 1; border-left: 1px solid gray; height: 100%; padding: 20px;">
+        <img style="width: 70px; height: 70px; border-radius: 70px;" src={{currentFullArticle.author.image}} alt="" />
+        <h3>{{currentFullArticle.author.username}}</h3>
+        <p style="color: gray;">{{currentFullArticle.author.username}}</p>
+        <dx-button [text]="currentFullArticle.author.following ? 'Unfollow' : 'Follow'"
+            [ngClass]="currentFullArticle.author.following ? 'following-button' : 'not-following-button'" 
+            (onClick)="onFollowButtonClicked(currentFullArticle.author)"></dx-button>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.article-page-content-container {
+    display: flex;
+    height: 100%;
+}
+
+.following-button {
+    background-color: white;
+    color: rgb(26, 137, 23);  
+}
+
+.not-following-button {
+    background-color: rgb(26, 137, 23);
+    color: white;
+}
+
+.not-following-button, .following-button{
+    border-radius: 20px;
+}

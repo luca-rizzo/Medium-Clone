@@ -1,5 +1,5 @@
-<dx-list itemTemplate="article-item" [dataSource]="dataSource" pageLoadMode="nextButton">
+<dx-list itemTemplate="article-item" [dataSource]="dataSource$ | async" pageLoadMode="nextButton" [activeStateEnabled]="false">
     <div *dxTemplate="let data of 'article-item'">
-        <app-article [article]="data"></app-article>
+        <app-article-preview [article]="data" (onLikeButtonClicked)="onLikeButtonClicked($event)"></app-article-preview>
     </div>
 </dx-list>

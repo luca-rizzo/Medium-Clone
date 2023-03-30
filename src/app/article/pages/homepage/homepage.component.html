@@ -1,11 +1,11 @@
-<dx-tab-panel [animationEnabled]="true" [swipeEnabled]="true" style="height: 100%;">
+<dx-tab-panel [animationEnabled]="true" [swipeEnabled]="true" height="100%">
     <dxi-item title="Feed" icon="home">
         <div *dxTemplate>
             <app-article-list [feed]="true"></app-article-list>
         </div>
     </dxi-item>
     <dxi-item title="Global" icon="assets/image/global.png">
-        <div *dxTemplate >
+        <div *dxTemplate>
             <app-article-list [feed]="false"></app-article-list>
         </div>
     </dxi-item>

@@ -1,0 +1,10 @@
+.main-container {
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.router-outlet-container {
+    flex: 1; 
+    overflow-y: hidden;
+}

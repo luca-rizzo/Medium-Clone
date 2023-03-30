@@ -1,7 +1,4 @@
 .header {
-    position: fixed;
-    top: 0px;
-    z-index: 300;
     display: flex;
     width: 100%;
     align-items: center;
@@ -12,16 +9,17 @@
     background-color: white;
 }
 .img-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
 }
 .right-part {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     column-gap: 20px;
-    flex: 3 1 auto;
+    flex: 3 1;
 }
 .user-img {
     width: 40px;
@@ -29,5 +27,8 @@
     border-radius: 40px;
 }
 .search-box {
-    flex: 1 1 auto;
+    flex: 1 1;
+    border-radius: 30px;
+    background-color: rgb(244, 244, 244);
+    border: 0px;
 }
