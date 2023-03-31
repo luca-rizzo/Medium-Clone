@@ -16,3 +16,8 @@
 .not-following-button, .following-button{
     border-radius: 20px;
 }
+
+.commentsVisible {
+    background: rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+}

@@ -14,6 +14,7 @@ export class ArticlePageComponent {
 
   currentFullArticle$: Observable<Article> = this._articleService.currentFullArticleWithAction$;
   isLoading$: Observable<boolean> = this._articleService.isLoadingAction$;
+  commentsVisible: boolean = false;
 
   constructor(private readonly _route: ActivatedRoute, private readonly _articleService: ArticleService) {
     this._articleService.setOpenArticle(this._route.snapshot.paramMap.get('slug') || '');
